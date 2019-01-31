@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Explore ACS Data</title>
+
+        <!--put your external stylesheet links here-->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="lib/leaflet/leaflet.css">
+        <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/> -->
+		<link rel="stylesheet" href="lib/leaflet-search/src/leaflet-search.css">
+		<link rel="stylesheet" href="css/easy-button.css">
+        <link rel="stylesheet" href="css/leaflet.zoomhome.css">
+        <link rel="stylesheet" href="lib/L.Control.Locate.mapbox.min.css">
+        <link rel="stylesheet" href="css/MarkerCluster.css">
+		<link rel="stylesheet" href="css/MarkerCluster.Default.css">
+		<link rel="stylesheet" href="css/jquery-ui.css">
+		<link href="https://fonts.googleapis.com/css?family=Quattrocento" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Crimson Text" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Varela" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+    </head>
+    <body>
+        <div id="chart-tooltip"></div>
+        <div id="wrapper">
+            <div id="splash" style="display:flex">
+                <div id="splash-container">
+                    <div id="splash-head">
+                        <div>
+                            <h1>Census Demographic Explorer</h1>
+                        </div>
+                    </div>
+                    <p>The American Community Survey is an ongoing survey that provides information on a yearly basis. The data generated from the survey helps to determine how over $675 billion in federal and state funds are distributed. Many communities plan for the future based on the data from ACS.</p>
+                    <p>The spatial boundaries include:</p>
+                    <ul>
+                        <li>Census Counties</li>
+                        <li>Census Block Groups</li>
+                        <li>Independent School Districts (ISDs)</li>
+                        <li>Census Designated Places</li>
+                        <li>Census Tracts</li>
+                        <li>Vulernable Population</li>
+                        <li>Zip Codes</li>
+                    </ul>
+                    <p>This application allows users to view the American Community Survey based on a spatial boundary. This boundaries are focused on the Houston-Galveston Area Council's planning region. This region includes the 13 counties around the Houston area. The statistics from ACS are a 5 year estimates based on responses from surveys. The ACS data is a good way to view the shifting demographics and learn about local communities between the decennial census.</p>
+                    <button id="close-splash" style="box-shadow: none" onclick="$('#splash').fadeOut(1000);">Continue</button>
+                </div>
+            </div>
+            <div id="panel">
+                <h2>Census Demographic Explorer</h2>
+                <h4>Select a Layer to Display:</h4>
+                <div class="button">
+                    <button type="button" id="counties" class="btn-counties">Census Counties</button>
+                    <button type="button" id="blocks" class="btn-blocks">Block Groups</button>
+                    <button type="button" id="isds" class="btn-isds">ISDs</button>
+                    <button type="button" id="places" class="btn-places">Census Places</button>
+                    <button type="button" id="tracts" class="btn-tracts">Census Tracts</button>
+                    <button type="button" id="vulnerable" class="btn-vulnerable">Vulernable Population</button>
+                    <button type="button" id="zip" class="btn-zip">Zip Codes</button>
+                </div><br>
+                <h4>Select which Attributes you would like to see:</h4>
+                <div class="checkbox">
+                    <input type="checkbox" name="chart" id="race" checked="checked">Population by Race<br>
+                    <input type="checkbox" name="chart" id="age" checked="checked">Population by Age<br>
+                    <input type="checkbox" name="chart" id="car" checked="checked">Car Ownership by Household<br>
+                    <input type="checkbox" name="chart" id="education" checked="checked">Level of Education<br>
+                    <input type="checkbox" name="chart" id="english" checked="checked">Level of English Spoken<br>
+                    <input type="checkbox" name="chart" id="income" checked="checked">Household Income<br>
+                    <input type="checkbox" name="chart" id="poverty" checked="checked">Incomes Above/Below Poverty Level<br>
+                    <input type="checkbox" name="chart" id="travel">Travel Time to Work<br>
+                    <input type="checkbox" name="chart" id="mode">Mode of Travel to Work<br>
+                    <input type="checkbox" name="newChart" id="line">Total Population over Time
+                </div>
+                <p class="note">Note: You can only select up to 7 attributes</p>
+            </div>
+            <div id="map"></div>
+            <div class="footer"></div>
+        </div>
+        
+
+        <!--put your external script links here-->
+        <!-- <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg=="
+        crossorigin=""></script> -->
+        <script type="text/javascript" src="lib/leaflet/leaflet-src.js"></script>
+        <script type="text/javascript" src="lib/jquery-3.3.1.js"></script>
+        <script type="text/javascript" src="js/jquery-ui.js"></script>
+        <script src="lib/leaflet-search/src/leaflet-search.js"></script>
+        <script type="text/javascript" src="js/easy-button.js"></script>
+        <script type="text/javascript" src="js/leaflet.zoomhome.min.js"></script>
+        <script type="text/javascript" src="lib/L.Control.Locate.min.js"></script>
+        <script type="text/javascript" src="lib/esri-leaflet-v2.1.4/dist/esri-leaflet.js"></script>
+        <script type="text/javascript" src="lib/d3.js"></script>
+        <script type="text/javascript" src="lib/d3-queue.min.js"></script>
+        <script type="text/javascript" src="js/main.js"></script>
+    </body>
+</html>
